@@ -1,0 +1,107 @@
+// Importa o LightningElement do LWC para a classe
+import { LightningElement } from 'lwc';
+
+// Define a classe da página
+export default class simuladorDeCompras extends LightningElement {
+
+    // Define as variáveis de estado iniciais
+    quantidade;
+    quantidade2;
+    quantidade3;
+    precoUni;
+    precoUni2;
+    precoUni3;
+    precoTotal;
+    desconto;
+    desconto2;
+    desconto3;
+    
+    // Define as opções de produtos para o combobox
+    get options(){
+        return [
+            { label: 'Base BB', value: '119.99'},
+            { label: 'Batom BB', value: '39.99'},
+            { label: 'Blush BB', value: '59.99'},
+            { label: 'Bronzer BB', value: '99.99'},
+            { label: 'Contorno BB', value: '75.99'},
+            { label: 'Corretivo BB', value: '99.99'},
+            { label: 'Deleneador BB', value: '99.99'},
+            { label: 'Demaquilante BB', value: '64.99'},
+            { label: 'Fixador BB', value: '109.99'},
+            { label: 'Gloss BB', value: '49.99'},
+            { label: 'Iluminador BB', value: '149.99'},
+            { label: 'Kit De pinceis BB', value: '219.99'},
+            { label: 'Lápis Labial BB', value: '49.99'},
+            { label: 'Lápis pra olho ', value: '34.99'},
+            { label: 'Lápis pra sombrancelha BB', value: '79.99'},
+            { label: 'Mascara de Cilios BB', value: '109.99'},
+            { label: 'Paleta de Contorno BB', value: '139.99'},
+            { label: 'Pó Compacto BB', value: '119.99'},
+            { label: 'Primer BB', value: '169.99'},
+            { label: 'Sombra BB', value: '79.99'},
+        ];
+    };
+
+    // Define as opções de descontos para o combobox
+    get descontos(){
+        return [
+            { label: '0%', value: '1'},
+            { label: '7%', value: '0.93'},
+            { label: '10%', value: '0.90'},
+        ];
+    };
+
+    // Atualiza o valor do preço unitário quando o usuário seleciona um produto
+    selecionarProduto(event){
+        this.precoUni = parseFloat(event.target.value).toFixed(2);
+    };
+    selecionarProduto2(event){
+        this.precoUni2 = parseFloat(event.target.value).toFixed(2);
+    };
+    selecionarProduto3(event){
+        this.precoUni3 = parseFloat(event.target.value).toFixed(2);
+    };
+
+    // Atualiza o valor da quantidade quando o usuário insere um valor
+    obterQuantidade(event){
+        this.quantidade = event.target.value;
+    };
+    obterQuantidade2(event){
+        this.quantidade2 = event.target.value;
+    };
+    obterQuantidade3(event){
+        this.quantidade3 = event.target.value;
+    };
+
+    // Atualiza o valor do desconto quando o usuário seleciona um desconto
+    selecionarDesconto(event){
+        this.desconto = parseFloat(event.target.value);
+    };
+    selecionarDesconto2(event){
+        this.desconto2 = parseFloat(event.target.value);
+    };
+    selecionarDesconto3(event){
+        this.desconto3 = parseFloat(event.target.value);
+    };
+
+    // Calcula o preço total com base nos valores de preço unitário, quantidade e desconto
+    calcular(){
+        const precoTotal1 = (parseFloat(this.precoUni) * parseFloat(this.quantidade)) * (1 - parseFloat(this.desconto));
+        const precoTotal2 = (parseFloat(this.precoUni2) * parseFloat(this.quantidade2)) * (1 - parseFloat(this.desconto2));
+        const precoTotal3 = (parseFloat(this.precoUni3) * parseFloat(this.quantidade3)) * (1 - parseFloat(this.desconto3));
+        this.precoTotal = `R$${(precoTotal1 + precoTotal2 + precoTotal3).toFixed(2)}`;
+      };
+      
+    
+    
+
+    // Limpa todos os valores de input e combobox
+    apagar(){
+        this.template.querySelectorAll('lightning-input').forEach(each => {
+            each.value = null;
+        });
+        this.template.querySelectorAll('lightning-combobox').forEach(each => {
+            each.value = null;
+        });
+    };
+};
