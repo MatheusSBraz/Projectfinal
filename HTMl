@@ -1,0 +1,75 @@
+<template>
+    <!-- Cria um componente div com estilo slds-box e slds-theme_default -->
+    <div class="slds-box slds-theme_default" style="background-color:white">
+        <!-- Cria um cabeçalho h2 -->
+        <h2>Simulador de Compras:</h2>
+        <br><br>
+        <!-- Cria um componente lightning-combobox para selecionar produtos -->
+        <lightning-combobox
+            name="progress"
+            label="Produtos:" 
+            value={value}
+            placeholder="Selecione o produto:"
+            options={options}
+            onchange={selecionarProduto}
+            >
+        </lightning-combobox>
+        <!-- Cria uma grade com três colunas, cada uma contendo um componente lightning-input -->
+        <div class="slds-grid">
+            <div class="slds-col">
+                <span><lightning-input name="precoUnitario" label="Preço Unitário (R$):" type="decimal" value={precoUni} onchange={obterPrecoUni} class="tamanho"></lightning-input></span>
+            </div>
+            <div class="slds-col">
+                <span><lightning-input name="quantidade" label="Quantidade:" type="number" value={quantidade} onchange={obterQuantidade}  class="tamanho"></lightning-input></span>
+            </div>
+        </div>
+        <br>
+          <!-- Cria um componente lightning-combobox para selecionar produtos -->
+          <lightning-combobox
+          name="progress"
+          label="Produtos:" 
+          value={value}
+          placeholder="Selecione o produto:"
+          options={options}
+          onchange={selecionarProduto2}
+         >
+      </lightning-combobox>
+      <!-- Cria uma grade com três colunas, cada uma contendo um componente lightning-input -->
+      <div class="slds-grid">
+          <div class="slds-col">
+              <span><lightning-input name="precoUnitario" label="Preço Unitário (R$):" type="decimal" value={precoUni2} onchange={obterPrecoUni} class="tamanho"></lightning-input></span>
+          </div>
+          <div class="slds-col">
+              <span><lightning-input name="quantidade" label="Quantidade:" type="number" value={quantidade2} onchange={obterQuantidade2}  class="tamanho"></lightning-input></span>
+          </div>
+      </div>
+      <br>
+        <!-- Cria um componente lightning-combobox para selecionar produtos -->
+        <lightning-combobox
+            name="progress"
+            label="Produtos:" 
+            value={value}
+            placeholder="Selecione o produto:"
+            options={options}
+            onchange={selecionarProduto3}
+            >
+        </lightning-combobox>
+        <!-- Cria uma grade com três colunas, cada uma contendo um componente lightning-input -->
+        <div class="slds-grid">
+            <div class="slds-col">
+                <span><lightning-input name="precoUnitario" label="Preço Unitário (R$):" type="decimal" value={precoUni3} onchange={obterPrecoUni} class="tamanho"></lightning-input></span>
+            </div>
+            <div class="slds-col">
+                <span><lightning-input name="quantidade" label="Quantidade:" type="number" value={quantidade3} onchange={obterQuantidade3} class="tamanho"></lightning-input></span>
+            </div>
+        </div>
+        <br>
+        <!-- Cria um botão para calcular o preço total -->
+        <lightning-button variant="brand" label="Calcular" onclick={calcular}></lightning-button>
+        <!-- Cria um botão para apagar os dados inseridos e permitir que o usuário insira novamente -->
+        <lightning-button label="Consultar Novamente" onclick={apagar} style="color: #7C455C"></lightning-button>
+        <br><br>
+        <!-- Cria um componente lightning-input para exibir o preço total -->
+        <lightning-input name="valorTotal" label="Preço Total:" type="text" value={precoTotal}></lightning-input>
+    </div>
+</template>
