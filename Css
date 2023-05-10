@@ -1,0 +1,35 @@
+/* Este bloco de código define as propriedades de estilo para o componente Lightning Button,
+como uma margem fina. */
+lightning-button{
+    margin:var(--lwc-borderWidthThin, 5px);
+}
+
+/* Este bloco de código define as propriedades de estilo para o componente Lightning Input,
+como tamanho de fonte médio, negrito e estilo itálico. */
+lightning-input{
+    font-size:medium;
+    font-weight:bold;
+    font-style:italic;
+}
+
+/* Este bloco de código define as propriedades de estilo para o componente Lightning Combobox,
+como tamanho de fonte médio, negrito e estilo itálico. */
+lightning-combobox{
+    font-size:medium;
+    font-weight:bold;
+    font-style:italic;
+}
+
+/* Este bloco de código define as propriedades de estilo para uma classe de tamanho,
+como largura de 65%. */
+.tamanho{
+    width: 65%;
+}
+
+/* Este bloco de código define as propriedades de estilo para o elemento h2,
+como tamanho de fonte de 180%, alinhamento centralizado, e negrito. */
+h2{
+    font-size:180%;
+    text-align:center;
+    font-weight:bold;
+}
