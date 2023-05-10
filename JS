@@ -5,16 +5,14 @@ import { LightningElement } from 'lwc';
 export default class simuladorDeCompras extends LightningElement {
 
     // Define as variáveis de estado iniciais
-    quantidade;
-    quantidade2;
-    quantidade3;
-    precoUni;
-    precoUni2;
-    precoUni3;
+    quantidade =  0;
+    quantidade2 = 0;
+    quantidade3 = 0;
+    precoUni  = 0;
+    precoUni2 = 0;
+    precoUni3 = 0;
     precoTotal;
-    desconto;
-    desconto2;
-    desconto3;
+    
     
     // Define as opções de produtos para o combobox
     get options(){
@@ -42,14 +40,8 @@ export default class simuladorDeCompras extends LightningElement {
         ];
     };
 
-    // Define as opções de descontos para o combobox
-    get descontos(){
-        return [
-            { label: '0%', value: '1'},
-            { label: '7%', value: '0.93'},
-            { label: '10%', value: '0.90'},
-        ];
-    };
+   
+    
 
     // Atualiza o valor do preço unitário quando o usuário seleciona um produto
     selecionarProduto(event){
@@ -74,21 +66,12 @@ export default class simuladorDeCompras extends LightningElement {
     };
 
     // Atualiza o valor do desconto quando o usuário seleciona um desconto
-    selecionarDesconto(event){
-        this.desconto = parseFloat(event.target.value);
-    };
-    selecionarDesconto2(event){
-        this.desconto2 = parseFloat(event.target.value);
-    };
-    selecionarDesconto3(event){
-        this.desconto3 = parseFloat(event.target.value);
-    };
-
+    
     // Calcula o preço total com base nos valores de preço unitário, quantidade e desconto
     calcular(){
-        const precoTotal1 = (parseFloat(this.precoUni) * parseFloat(this.quantidade)) * (1 - parseFloat(this.desconto));
-        const precoTotal2 = (parseFloat(this.precoUni2) * parseFloat(this.quantidade2)) * (1 - parseFloat(this.desconto2));
-        const precoTotal3 = (parseFloat(this.precoUni3) * parseFloat(this.quantidade3)) * (1 - parseFloat(this.desconto3));
+        const precoTotal1 = (parseFloat(this.precoUni)  *  parseFloat(this.quantidade));
+        const precoTotal2 = (parseFloat(this.precoUni2) *  parseFloat(this.quantidade2));
+        const precoTotal3 = (parseFloat(this.precoUni3) *  parseFloat(this.quantidade3));
         this.precoTotal = `R$${(precoTotal1 + precoTotal2 + precoTotal3).toFixed(2)}`;
       };
       
@@ -103,5 +86,12 @@ export default class simuladorDeCompras extends LightningElement {
         this.template.querySelectorAll('lightning-combobox').forEach(each => {
             each.value = null;
         });
+        this.quantidade =  0;
+        this.quantidade2 = 0;
+        this.quantidade3 = 0;
+        this.precoUni  = 0;
+        this.precoUni2 = 0;
+        this.precoUni3 = 0;
     };
 };
+
